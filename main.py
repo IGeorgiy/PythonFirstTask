@@ -9,6 +9,9 @@ def makeStep(field, mark) :
     if str.lower(inp) == 'r':
         return None
     step = str.split(inp, ',', 2)
+    if not step[0].isdigit() or not step[1].isdigit():
+        print("Введенные координаты должны быть цифрами!")
+        return makeStep(field, mark)
     if field[int(step[1])][int(step[0])] == '-':
         field[int(step[1])][int(step[0])] = mark
         return field
